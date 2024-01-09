@@ -1,9 +1,12 @@
 package com.example.demo.service;
 
 import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
 
+import com.example.demo.entity.AddressClass;
 import com.example.demo.entity.EntityClass;
+import com.example.demo.repo.AddressRepo;
 import com.example.demo.repo.CrudRepo;
 import com.sun.org.apache.xpath.internal.operations.Bool;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,11 +16,15 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import javax.swing.text.html.Option;
+import javax.swing.text.html.parser.Entity;
 
 @Service
 public class CrudService implements CrudServiceInterf {
     @Autowired
     private CrudRepo entityClassRepository;
+
+    @Autowired
+    private AddressRepo addressClassRepository;
 
     public List<EntityClass> getAllEntities() {
         return entityClassRepository.findAll();
@@ -41,13 +48,13 @@ public class CrudService implements CrudServiceInterf {
 
     @Override
     public ResponseEntity<Boolean> addEmployee(EntityClass entity) {
-        EntityClass newEntity = new EntityClass();
+//        EntityClass newEntity = new EntityClass();
+//
+//        newEntity.setFirstName(entity.getFirstName());
+//        newEntity.setEmail(entity.getEmail());
+//        newEntity.setLastName(entity.getLastName());
 
-        newEntity.setFirstName(entity.getFirstName());
-        newEntity.setEmail(entity.getEmail());
-        newEntity.setLastName(entity.getLastName());
-
-        newEntity = entityClassRepository.save(newEntity);
+       entity = entityClassRepository.save(entity);
         return ResponseEntity.ok(Boolean.TRUE);
     }
 
@@ -64,6 +71,7 @@ public class CrudService implements CrudServiceInterf {
 
 //        return entityObject.map(ResponseEntity :: ok).orElseGet(()-> ResponseEntity.unprocessableEntity().body(new EntityClass()));
     }
+
 
     @Override
     public ResponseEntity<Boolean> deleteById(Long id) {
@@ -95,5 +103,13 @@ public class CrudService implements CrudServiceInterf {
         }
     }
 
+    @Override
+    public ResponseEntity<Boolean> updateAddressById(Long id, String pincode, String city) {
+        ResponseEntity<EntityClass> employee = getById(id);
+        Objects.requireNonNull(employee.getBody()).getPermanentAddress().setPincode(pincode);
+        Objects.requireNonNull(employee.getBody()).getPermanentAddress().setCity(city);
+        entityClassRepository.save(employee.getBody());
+        return ResponseEntity.ok(Boolean.TRUE);
+    }
 
 }
