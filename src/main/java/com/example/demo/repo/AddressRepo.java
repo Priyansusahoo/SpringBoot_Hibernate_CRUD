@@ -12,10 +12,10 @@ public interface AddressRepo extends JpaRepository<AddressClass, Long> {
     /**
      * This interface method is not needed as we are handling it in CrudService class.
      */
-    @Modifying
-    @Transactional
-    @Query("insert into AddressClass values(:addressid, :pincode, :city)")
-    int insertAddressById(@Param("addressid") String addressid,
-                          @Param("pincode") String pincode,
-                          @Param("city") String city);
+//    @Modifying
+//    @Transactional
+//    @Query("insert into AddressClass values(:addressid, :pincode, :city)")
+//    int insertAddressById(@Param("addressid") String addressid,
+//                          @Param("pincode") String pincode,
+//                          @Param("city") String city);
 }
