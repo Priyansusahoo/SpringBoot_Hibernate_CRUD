@@ -41,4 +41,11 @@ public class CrudController {
     public ResponseEntity<Boolean> updateEmployee(@RequestParam Long id, @RequestParam String email){
         return crudService.updateEmailById(id, email);
     }
+
+    @PutMapping("/updateAddressById")
+    public ResponseEntity<Boolean> updateAddressById(@RequestParam Long id,
+                                                     @RequestParam String pincode,
+                                                     @RequestParam String city){
+        return crudService.updateAddressById(id, pincode, city);
+    }
 }
