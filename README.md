@@ -90,3 +90,16 @@ Response Body ->
 (JSON)
     
     true
+
+## updateAddressById :
+- (PUT) Request
+- URL : http://localhost:9090/myapp/updateEmailById?id=5&email=sddfsadf@gmail.com
+
+Request Body :
+
+![image](https://github.com/Priyansusahoo/SpringBoot_Hibernate_crud_API_EndPoints/assets/78722016/b8853013-c2a1-415c-a110-805742815a43)
+
+Response Body ->
+(JSON)
+    
+    true
