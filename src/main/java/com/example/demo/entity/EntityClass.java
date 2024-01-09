@@ -1,5 +1,6 @@
 package com.example.demo.entity;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -29,4 +30,9 @@ public class EntityClass {
     @JsonProperty("email")
     @Column(name = "email")
     private String email;
+
+    @OneToOne(mappedBy = "entityClass", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JsonManagedReference
+    @JsonProperty("permanentAddress")
+    private AddressClass permanentAddress;
 }
