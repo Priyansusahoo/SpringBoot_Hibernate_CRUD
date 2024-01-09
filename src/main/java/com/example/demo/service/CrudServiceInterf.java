@@ -1,4 +1,5 @@
 package com.example.demo.service;
+import com.example.demo.entity.AddressClass;
 import com.example.demo.entity.EntityClass;
 import org.springframework.http.ResponseEntity;
 
@@ -13,4 +14,6 @@ public interface CrudServiceInterf {
     ResponseEntity<Boolean> deleteById(Long id);
 
     ResponseEntity<Boolean> updateEmailById(Long id, String email);
+
+    ResponseEntity<Boolean> updateAddressById(Long id, String pincode, String city);
 }
