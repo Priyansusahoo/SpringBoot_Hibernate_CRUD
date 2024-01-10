@@ -26,8 +26,12 @@ public class AddressClass {
     @Column(name = "city")
     private String city;
 
+    @JsonProperty("isTemporary")
+    @Column(name = "IS_TEMPORARY")
+    private Boolean isTemporary;
+
     @JsonBackReference
-    @OneToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id")
     private EntityClass entityClass;
 }

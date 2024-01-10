@@ -106,8 +106,8 @@ public class CrudService implements CrudServiceInterf {
     @Override
     public ResponseEntity<Boolean> updateAddressById(Long id, String pincode, String city) {
         ResponseEntity<EntityClass> employee = getById(id);
-        Objects.requireNonNull(employee.getBody()).getPermanentAddress().setPincode(pincode);
-        Objects.requireNonNull(employee.getBody()).getPermanentAddress().setCity(city);
+//        Objects.requireNonNull(employee.getBody()).getPermanentAddress().setPincode(pincode);
+//        Objects.requireNonNull(employee.getBody()).getPermanentAddress().setCity(city);
         entityClassRepository.save(employee.getBody());
         return ResponseEntity.ok(Boolean.TRUE);
     }

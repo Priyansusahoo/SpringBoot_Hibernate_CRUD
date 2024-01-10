@@ -7,6 +7,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "EMPLOYEE")
@@ -31,8 +32,13 @@ public class EntityClass {
     @Column(name = "email")
     private String email;
 
-    @OneToOne(mappedBy = "entityClass", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+//    @OneToMany(mappedBy = "entityClass", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+//    @JsonManagedReference
+//    @JsonProperty("permanentAddress")
+//    private AddressClass permanentAddress;
+
+    @OneToMany(mappedBy = "entityClass", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JsonManagedReference
-    @JsonProperty("permanentAddress")
-    private AddressClass permanentAddress;
+    @JsonProperty("addressList")
+    private List<AddressClass> addressList;
 }
