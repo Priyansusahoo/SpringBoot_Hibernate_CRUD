@@ -1,13 +1,8 @@
 # Spring Boot and Hibernate CRUD App using MySQL Database
+## API Endpoints for SpringBoot_Hibernate_CRUD with Sample INPUT:
+<!-- #### [API End-Points GitHub Repository ->](https://github.com/Priyansusahoo/SpringBoot_Hibernate_crud_API_EndPoints) -->
 
-
-<!-- ## [API End-Points GitHub Repository ->](https://github.com/Priyansusahoo/SpringBoot_Hibernate_crud_API_EndPoints) -->
-
-# SpringBoot_Hibernate_crud_API_EndPoints
-### API Endpoints for SpringBoot_Hibernate_CRUD with Example:
-
-
-## getAllEmployees API :
+## 1. getAllEmployees API :
 - (GET) Request
 - URL : http://localhost:9090/myapp/getAllEmployees
 
@@ -29,7 +24,7 @@ Response Body ->
     }
     ]
 
-## addEmployee API :
+## 2. addEmployee API :
 - (POST) Request
 - URL : http://localhost:9090/myapp/addEmployee
 
@@ -47,7 +42,7 @@ Response Body ->
 
     true
 
-## getById :
+## 3. getById :
 - (GET) Request
 - URL : http://localhost:9090/myapp/getById?id=7
 
@@ -65,7 +60,7 @@ Response Body ->
     "email": "abc@gmail.com"
     }
 
-## deleteById :
+## 4. deleteById :
 - (PUT) Request
 - URL : http://localhost:9090/myapp/deleteById?id=9
 
@@ -78,7 +73,7 @@ Response Body ->
     
     true
 
-## updateEmailById :
+## 5. updateEmailById :
 - (PUT) Request
 - URL : http://localhost:9090/myapp/updateEmailById?id=5&email=sddfsadf@gmail.com
 
@@ -91,7 +86,7 @@ Response Body ->
     
     true
 
-## updateAddressById :
+## 6. updateAddressById :
 - (PUT) Request
 - URL : http://localhost:9090/myapp/updateEmailById?id=5&email=sddfsadf@gmail.com
 
